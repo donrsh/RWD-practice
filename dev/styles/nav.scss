@@ -1,0 +1,149 @@
+@import "~susy/sass/susy";
+@import "~breakpoint-sass/stylesheets/_breakpoint";
+
+@import "./variables.scss";
+@import "./utilMixins.scss";
+
+//root: nav;
+$root_h-smp: 36px;
+$root_h-lgp: 75px;
+$root_h-tbl: 100px;
+$root_h-dtp: 100px;
+
+$_hint_fz-smp: 16px;
+$_hint_fz-lgp: 30px;
+
+$_item_fz_tbl: 18px;
+
+nav{
+	padding-left: 20px;
+
+	background-color: rgb(55, 60, 63);
+
+	// for small phone
+	height: $root_h-smp;
+	
+	// for large phone
+	@include breakpoint($lgp){
+		height: $root_h-lgp;
+	}
+
+	// for tablet
+	@include breakpoint($tbl){
+		height: $root_h-tbl;
+	}
+
+	// for desktop
+	@include breakpoint($dtp){
+		max-width: $dtp;
+		height: $root_h_dtp;
+
+		margin: 0 auto;
+	}
+}
+
+#nav_hint{
+	display: inline-block;
+
+	float: left;
+
+	color: white;
+	
+	@include oneLineText($_hint_fz-smp, $root_h-smp);
+
+	// for larger phone
+	@include breakpoint($lgp){
+		@include oneLineText($_hint_fz-lgp, $root_h-lgp);
+	}
+
+	//for tablet and desktop
+	@include breakpoint($tbl){
+		display: none;
+	}
+}
+
+#nav_itemsList{
+	// for small phone and large hpone
+	display: none;
+
+	// for tablet and desktop
+	@include breakpoint($tbl){
+		display: inline-block;
+	}
+}
+
+.nav_item{
+	color: white;
+
+	// for tablet and desktop
+	@include breakpoint($tbl){
+		margin-right: 18px;
+		cursor: pointer;
+
+		position: relative;
+		&:before, &:after{
+			width: 0px;
+			height: 2px;
+
+			margin: 0 auto;
+
+			position: absolute;
+			left: 0;
+			right: 0;
+
+			background-color: white;
+
+			content: " ";
+
+			transition: 0.5s all;
+		}
+
+		&:before{ top: 20px; }
+		&:after{ bottom: 20px; }
+
+		&:hover:before, &:hover:after{
+			width: 90%;
+		}
+
+		@include oneLineText($_item_fz_tbl, $root_h-tbl);
+	}
+}
+
+#nav_btnContainer{
+	position: relative;
+
+	float: right;
+
+	background-color: rgb(32, 27, 41);
+
+	@include clearfix;
+
+	// for small phone
+	width: 40px;
+	height: $root_h-smp;
+
+	// for larger phone
+	@include breakpoint($lgp){
+		width: 70px;
+		height: $root_h-lgp;
+	}
+
+	// for tablet and desktop
+	@include breakpoint($tbl){
+		display: none;
+	}
+}
+
+#nav_btnImg{
+	width: auto;
+
+	@include centerInline;
+
+	// for small phone
+	height: 14px;
+
+	// for larger phone
+	@include breakpoint($lgp){
+		height: 30px;
+	}
+}

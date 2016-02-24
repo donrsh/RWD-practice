@@ -1,0 +1,118 @@
+@import "~susy/sass/susy";
+@import "~breakpoint-sass/stylesheets/_breakpoint";
+
+@import "./variables.scss";
+@import "./utilMixins.scss";
+
+// root: company
+// rootEle: #company
+
+$root_p-smp: 35px;
+$root_p-lgp: 85px;
+$root_p-tbl: 80px;
+$root_p-dtp: 85px;
+
+$_title_fz-smp: 16px;
+$_title_fz-lgp: 24px;
+$_title_fz-tbl: 30px;
+$_title_fz-dtp: 30px;
+
+$_title_mb-smp: 24px;
+$_title_mb-lgp: 54px;
+$_title_mb-tbl: 30px;
+$_title_mb-dtp: 30px;
+
+$_text_fz-smp: 12px;
+$_text_fz-lgp: 18px;
+$_text_fz-tbl: 20px;
+$_text_fz-dtp: 20px;
+
+#company{
+
+	background-color: rgb(235, 235, 235);
+	font-weight: 400;
+
+	// for small phone
+	padding: $root_p-smp;
+	
+	// for large phone
+	@include breakpoint($lgp){
+		padding: $root_p-lgp;
+	}
+
+	// for tablet
+	@include breakpoint($tbl){
+		padding: $root_p-tbl;
+	}
+
+	// for desktop
+	@include breakpoint($dtp){
+		max-width: $dtp;
+		padding: $root_p-dtp;
+
+		margin: 0 auto;
+	}
+}
+
+#company_header{
+	color: rgb(8, 140, 165);
+
+	// for small phone
+	font-size: $_title_fz-smp;
+	margin-bottom: $_title_mb-smp;
+	
+	// for large phone
+	@include breakpoint($lgp){
+		font-size: $_title_fz-lgp;
+		margin-bottom: $_title_mb-lgp;
+	}
+
+	// for tablet
+	@include breakpoint($tbl){
+		font-size: $_title_fz-tbl;
+		margin-bottom: $_title_mb-tbl;
+	}
+
+	// for desktop
+	@include breakpoint($dtp){
+		max-width: $dtp;
+		font-size: $_title_fz-dtp;
+		margin-bottom: $_title_mb-dtp;
+
+	}
+}
+
+#company_text{
+	color: rgb(113, 113, 113);
+	line-height: 1.8;
+
+	// for small phone
+	font-size: $_text_fz-smp;
+	
+	// for large phone
+	@include breakpoint($lgp){
+		font-size: $_text_fz-lgp;
+	}
+
+	// for tablet
+	@include breakpoint($tbl){
+		font-size: $_text_fz-tbl;
+
+		//for both tablet and desktop
+		// -webkit-column-count: 2; /* Chrome, Safari, Opera */
+    	// -moz-column-count: 2; /* Firefox */
+    	column-count: 3;
+
+    	// -webkit-column-gap: 40px; /* Chrome, Safari, Opera */
+    	// -moz-column-gap: 40px; /* Firefox */
+    	column-gap: 40px;
+	}
+
+	// for desktop
+	@include breakpoint($dtp){
+		max-width: $dtp;
+		font-size: $_text_fz-dtp;
+		margin-bottom: $_title_mb-dtp;
+
+	}
+}

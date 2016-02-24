@@ -1,0 +1,46 @@
+// set an inline/inlimeblock element in the center of a block
+//remember to set the container with `position: relative;`
+@mixin centerInline{
+	position: absolute;
+    margin: auto;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+
+//to clear the space in a block containing only inline element
+@mixin notext{
+	font-size: 0;
+}
+
+@mixin setMarginBetweenNext( $value ){
+	margin-bottom: $value;
+}
+
+//to set a block to own infinite width
+@mixin infiniteWidth{
+	white-space: nowrap;
+}
+
+//to set a block to wrap, if its parent has @include infiniteWidth
+@mixin clearInfiniteWidth{
+	white-space: normal;
+}
+
+@mixin clearfix{
+	overflow-y: auto;
+}
+
+@mixin oneLineText( $font_size, $line_height, $display: inline-block){
+	display: $display;
+
+	height: $line_height;
+	font-size: $font_size;
+	line-height: $line_height;
+}
+
+@mixin test{
+	border: 1px solid red;
+}

@@ -1,0 +1,113 @@
+@import "~susy/sass/susy";
+@import "~breakpoint-sass/stylesheets/_breakpoint";
+
+@import "./variables.scss";
+@import "./utilMixins.scss";
+
+// root: header
+$root_h-smp: 180px;
+$root_h-lgp: 350px;
+$root_h-tbl: 550px;
+$root_h-dtp: 575px;
+
+$root_plr-smp: 25px;
+$root_plr-lgp: 50px;
+$root_plr-tbl: 80px;
+$root_plr-dtp: 80px;
+
+$root_pt-smp: 65px;
+$root_pt-lgp: 110px;
+$root_pt-tbl: 190px;
+$root_pt-dtp: 200px;
+
+$root_pb-smp: 50px;
+$root_pb-lgp: 105px;
+$root_pb-tbl: 160px;
+$root_pb-dtp: 160px;
+
+$_title_fz-smp: 24px;
+$_title_fz-lgp: 36px;
+$_title_fz-tbl: 64px;
+$_title_fz-dtp: 68px;
+
+$_title_mb-smp: 12px;
+$_title_mb-lgp: 28px;
+$_title_mb-tbl: 48px;
+$_title_mb-dtp: 50px;
+
+header{
+	background: linear-gradient(to bottom right, rgb(25, 180, 198), rgb(7,138,164));
+
+	// for small phone
+	padding: $root_pt-smp $root_plr-smp $root_pb-smp;
+
+	// for large phone
+	@include breakpoint($lgp){
+		padding: $root_pt-lgp $root_plr-lgp $root_pb-lgp;
+	}
+
+	// for tablet
+	@include breakpoint($tbl){
+		padding-top: $root_pt-tbl;
+		padding: $root_pt-tbl $root_plr-tbl $root_pb-tbl;
+	}
+
+	// for desktop
+	@include breakpoint($dtp){
+		max-width: $dtp;
+
+		padding: $root_pt-dtp $root_plr-dtp $root_pb-dtp;
+		margin: 0 auto;
+	}
+
+}
+
+#header_title{
+	color: white;
+
+	// for small phone
+	font-size: $_title_fz-smp;
+	margin: 0 0 $_title_mb-smp;
+
+	// for large phone
+	@include breakpoint($lgp){
+		font-size: $_title_fz-lgp;
+		margin: 0 0 $_title_mb-lgp;
+	}
+
+	// for tablet
+	@include breakpoint($tbl){
+		font-size: $_title_fz-tbl;
+		margin: 0 0 $_title_mb-tbl;
+	}
+
+	// for desktop
+	@include breakpoint($dtp){
+		font-size: $_title_fz-dtp;
+		margin: 0 0 $_title_mb-dtp;
+
+	}
+}
+
+#header_link{
+	position: relative;
+
+	color: rgb(168, 214, 224);
+
+	&:after{
+		content: ">";
+		color: white;
+		font-size: 1.5em;
+		opacity: 0.5;
+
+		position: absolute;
+		right: -50px;
+
+		transition: 0.5s all
+	}
+
+	&:hover:after{
+		opacity: 1;
+		right: -70px;
+	}
+}

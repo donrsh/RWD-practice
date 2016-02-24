@@ -1,0 +1,119 @@
+@import "~susy/sass/susy";
+@import "~breakpoint-sass/stylesheets/_breakpoint";
+
+@import "./variables.scss";
+@import "./utilMixins.scss";
+
+// root: goto
+// rootEle: #goto
+
+$_text_plr-smp: 25px;
+$_text_plr-lgp: 50px;
+$_text_plr-tbl: 80px;
+$_text_plr-dtp: 80px;
+
+$_text_fz-smp: 12px;
+$_text_fz-lgp: 24px;
+$_text_fz-tbl: 26px;
+$_text_fz-dtp: 26px;
+
+$_text_ptb-smp: 32px;
+$_text_ptb-lgp: 63px;
+$_text_ptb-tbl: 72px;
+$_text_ptb-dtp: 85px;
+
+$_btn_w-smp: 68px;
+$_btn_w-lgp: 140px;
+$_btn_w-tbl: 220px;
+$_btn_w-dtp: 225px;
+
+#goto{
+	position: relative;
+
+	border-top: 1px solid rgb(188, 49, 131);
+	border-bottom: 1px solid rgb(188, 49, 131);
+
+	background-color: rgb(39, 33, 44);
+
+	// for desktop
+	@include breakpoint($dtp){
+		max-width: $dtp;
+		margin: 0 auto;
+	}
+}
+
+#goto_text{
+	color: rgb(156, 130, 161);
+	line-height: 1.4;
+	overflow: auto;
+
+	// for small phone
+	font-size: $_text_fz-smp;
+	padding: $_text_ptb-smp $_text_plr-smp;
+	max-width: calc(100% - #{$_btn_w-smp});
+	
+	// for large phone
+	@include breakpoint($lgp){
+		font-size: $_text_fz-lgp;
+		padding: $_text_ptb-lgp $_text_plr-lgp;
+		max-width: calc(100% - #{$_btn_w-lgp});
+	}
+
+	// for tablet
+	@include breakpoint($tbl){
+		font-size: $_text_fz-tbl;
+		padding: $_text_ptb-tbl $_text_plr-tbl;
+		max-width: calc(100% - #{$_btn_w-tbl});
+	}
+
+	// for desktop
+	@include breakpoint($dtp){
+		font-size: $_text_fz-dtp;
+		padding: $_text_ptb-dtp $_text_plr-dtp;
+		max-width: calc(100% - #{$_btn_w-dtp});
+	}
+}
+
+#goto_btn{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	color: white;
+	background-color: rgb(188, 49, 131);
+
+	text-align: center;
+
+	position: absolute;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	margin: auto 0;
+
+	// for small phone
+	width: $_btn_w-smp;
+	
+	// for large phone
+	@include breakpoint($lgp){
+		width: $_btn_w-lgp;
+	}
+
+	// for tablet
+	@include breakpoint($tbl){
+		width: $_btn_w-tbl;
+	}
+
+	// for desktop
+	@include breakpoint($dtp){
+		width: $_btn_w-dtp;
+	}
+}
+
+#goto_btn_inner{
+	font-size: 40px;
+}
+
+#goto_btn_inner:hover{
+	position: relative;
+	padding-left: 10px;
+}
